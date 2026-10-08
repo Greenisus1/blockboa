@@ -1,27 +1,25 @@
-# Blockboa
+# Blockboa 1.1.0
 
-Offline Snake drawn with Unicode block characters. No account, network, payment, score telemetry, or saved user data.
-
-Python 3, Tk (on Raspberry Pi OS: python3-tk), a desktop or VNC session, and a monospace font with Unicode block glyphs are required. Linux core tests and an actual Tk desktop preview were checked. Physical Raspberry Pi and non-Linux platforms are untested.
-
-## Run
+Offline Unicode-block Snake. Terminal-first: runs over an interactive SSH connection, no Tk or desktop needed. Optional desktop GUI remains.
 
     python3 blockboa.py
-
-Arrow keys or WASD turn. Space starts or pauses. R restarts. Eat the shaded block to grow, avoid walls and your body. Darker shaded blocks are the head. Score is food eaten. Clearing every square wins. Pick Slow, Normal or Fast speed. A single turn is accepted per tick so key repeats cannot reverse the snake.
-
-## Pi App Store
-
     bash app-store.sh install
     bash app-store.sh run
 
-The category marker is `games` on line 3. A category-aware App Store places this app in Games; older versions can still list and launch it normally. This package does not modify the App Store or move its existing games by itself.
+Arrows/WASD turn, Space starts/pauses, R restarts, 1/2/3 chooses Slow/Normal/Fast, q/Esc quits. Eat food to grow. Walls/body collision ends the game; filling every square wins. One turn per tick prevents reverse-key exploits. No account/network/telemetry/saved scores.
+
+Colored Unicode block board uses stdlib curses and a Unicode-capable monospace terminal. Board adapts on start/restart up to 24x18 cells. Minimum 20 columns x14 rows, 80x24 recommended. A resize that no longer fits pauses; enlarge or R to fit a fresh board. Noninteractive/no-TTY terminals fail clearly rather than pretending to play. Default terminal mode needs Python3+curses, not python3-tk or a display.
+
+Optional GUI:
+
+    python3 blockboa.py --gui
+    bash app-store.sh gui
+
+GUI requires python3-tk + desktop/VNC. The gui hook prints before adding missing Tk only root+apt, then checks the display. Terminal install never adds Tk or a desktop.
+
+Marker line3 is # pi-app-store-category: games. Category-aware store puts it under Games; older versions still launch it as a normal app. Version JSON included.
 
     python3 -m unittest -v
     python3 blockboa.py --version
 
-Version 1.0.1. MIT license.
-
-## Install repair (1.0.1)
-
-If Tk is missing and apt-get is available while running as root, the reviewed install hook announces and installs python3-tk. Otherwise it stops with instructions. It does not install a desktop. The run hook reports missing or inaccessible DISPLAY with desktop/VNC guidance instead of a traceback.
+Linux core tests, terminal PTY preview and virtual-display GUI checked. Physical Pi and non-Linux untested. MIT license.
