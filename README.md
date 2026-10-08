@@ -20,4 +20,8 @@ The category marker is `games` on line 3. A category-aware App Store places this
     python3 -m unittest -v
     python3 blockboa.py --version
 
-Version 1.0.0. MIT license.
+Version 1.0.1. MIT license.
+
+## Install repair (1.0.1)
+
+If Tk is missing and apt-get is available while running as root, the reviewed install hook announces and installs python3-tk. Otherwise it stops with instructions. It does not install a desktop. The run hook reports missing or inaccessible DISPLAY with desktop/VNC guidance instead of a traceback.
