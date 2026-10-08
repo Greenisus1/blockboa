@@ -1,4 +1,4 @@
-# Blockboa 1.1.0
+# Blockboa 1.1.1
 
 Offline Unicode-block Snake. Terminal-first: runs over an interactive SSH connection, no Tk or desktop needed. Optional desktop GUI remains.
 
@@ -8,7 +8,7 @@ Offline Unicode-block Snake. Terminal-first: runs over an interactive SSH connec
 
 Arrows/WASD turn, Space starts/pauses, R restarts, 1/2/3 chooses Slow/Normal/Fast, q/Esc quits. Eat food to grow. Walls/body collision ends the game; filling every square wins. One turn per tick prevents reverse-key exploits. No account/network/telemetry/saved scores.
 
-Colored Unicode block board uses stdlib curses and a Unicode-capable monospace terminal. Board adapts on start/restart up to 24x18 cells. Minimum 20 columns x14 rows, 80x24 recommended. A resize that no longer fits pauses; enlarge or R to fit a fresh board. Noninteractive/no-TTY terminals fail clearly rather than pretending to play. Default terminal mode needs Python3+curses, not python3-tk or a display.
+Colored Unicode block board uses stdlib curses and a Unicode-capable monospace terminal. Board fills available terminal width and height on start/restart (two character columns per cell). Minimum 20 columns x14 rows, 80x24 or larger recommended. A resize that no longer fits pauses; enlarge or R to fit a fresh board. Noninteractive/no-TTY terminals fail clearly rather than pretending to play. Default terminal mode needs Python3+curses, not python3-tk or a display.
 
 Optional GUI:
 
