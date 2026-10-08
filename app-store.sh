@@ -25,7 +25,8 @@ check_display() {
  }
 }
 case "${1:-}" in
- install) ensure_tk ;;
- run) check_display; exec python3 blockboa.py ;;
- *) echo 'Usage: bash app-store.sh install|run'; exit 2 ;;
+ install) python3 -c 'import curses' || { echo 'Python curses is required for terminal mode.'; exit 1; } ;;
+ run) exec python3 blockboa.py ;;
+ gui) ensure_tk; check_display; exec python3 blockboa.py --gui ;;
+ *) echo 'Usage: bash app-store.sh install|run|gui'; exit 2 ;;
 esac
