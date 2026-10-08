@@ -1,4 +1,4 @@
-# Blockboa 1.1.1
+# Blockboa 1.1.2
 
 Offline Unicode-block Snake. Terminal-first: runs over an interactive SSH connection, no Tk or desktop needed. Optional desktop GUI remains.
 
@@ -23,3 +23,5 @@ Marker line3 is # pi-app-store-category: games. Category-aware store puts it und
     python3 blockboa.py --version
 
 Linux core tests, terminal PTY preview and virtual-display GUI checked. Physical Pi and non-Linux untested. MIT license.
+
+1.1.2: reconciled terminal board width with actual right-border drawing so full-screen board does not clip the edge. GUI title now uses the version constant.
