@@ -8,7 +8,7 @@ def play(ui):
  interval=0.14;paused=False;started=False;game=None;next_tick=0
  def reset():
   nonlocal game,paused,started,next_tick
-  h,w=ui.s.getmaxyx();width=(w-3)//2; height=h-7
+  h,w=ui.s.getmaxyx();width=(w-5)//2; height=h-7
   if width<6 or height<6:game=None;return
   game=Game(width,height);paused=False;started=False;next_tick=time.monotonic()+interval
  reset();ui.s.timeout(30)
@@ -19,7 +19,7 @@ def play(ui):
     ui.draw('Terminal too small. Resize to at least 20 columns x 14 rows.',[],footer='Resize to play  q Quit')
    else:
     state='Won! R to restart' if game.won else 'Game over. R to restart' if game.over else 'Paused' if paused else 'Playing' if started else 'Space to start'
-    ui.s.erase();ui.put(0,0,'█ BLOCKBOA 1.1.1 █',curses.color_pair(1) if curses.has_colors() else curses.A_BOLD)
+    ui.s.erase();ui.put(0,0,'█ BLOCKBOA 1.1.2 █',curses.color_pair(1) if curses.has_colors() else curses.A_BOLD)
     ui.put(1,0,f'Score {game.score} | {state} | Speed {interval:.2f}s')
     if w<2*(game.width+2)+1 or h<game.height+7:
      paused=True;ui.put(3,0,'Board no longer fits. Enlarge terminal or press R to fit a new board.')
