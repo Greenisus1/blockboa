@@ -2,7 +2,7 @@
 """Blockboa: Unicode-block Snake with a testable, offline game core."""
 import random
 
-VERSION = '1.1.0'
+VERSION = '1.1.1'
 DIRECTIONS = {'up':(0,-1),'down':(0,1),'left':(-1,0),'right':(1,0)}
 
 class Game:
