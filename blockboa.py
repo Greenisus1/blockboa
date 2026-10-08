@@ -2,7 +2,7 @@
 """Blockboa: Unicode-block Snake with a testable, offline game core."""
 import random
 
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 DIRECTIONS = {'up':(0,-1),'down':(0,1),'left':(-1,0),'right':(1,0)}
 
 class Game:
@@ -44,7 +44,7 @@ class App:
  def __init__(self,root):
   import tkinter as tk
   from tkinter import ttk
-  self.root=root;root.title('Blockboa 1.0.0');root.configure(bg='#101f2d');root.resizable(False,False)
+  self.root=root;root.title('Blockboa 1.0.1');root.configure(bg='#101f2d');root.resizable(False,False)
   self.game=Game();self.paused=False;self.running=False;self.timer=None;self.interval=140
   tk.Label(root,text='BLOCKBOA',font=('DejaVu Sans Mono',20,'bold'),bg='#101f2d',fg='#a7ed7a').pack(pady=(15,4))
   self.status=tk.StringVar();tk.Label(root,textvariable=self.status,font=('DejaVu Sans Mono',11),bg='#101f2d',fg='#f7efcc').pack(pady=5)
